@@ -1,0 +1,1302 @@
+<html lang="en">
+<title>Hot Springs Café</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_green.css">
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Poppins", sans-serif
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .w3-half img {
+    margin-bottom: -6px;
+    margin-top: 6px;
+    opacity: 0.8;
+    cursor: pointer
+  }
+
+  .w3-half img:hover {
+    opacity: 1
+  }
+
+  .container {
+    display: flex;
+    align-items: left;
+    justify-content: left
+  }
+
+  .topright {
+    position: absolute;
+    top: 29px;
+    right: 16px;
+    font-size: 18px;
+  }
+
+  img {
+    max-width: 100%
+  }
+
+  .image {
+    flex-basis: 5%
+  }
+
+  .text {
+    font-size: 12px;
+    padding-left: 0px;
+  }
+
+  .w3-button {
+    padding: 10px 25px;
+    font-size: 22px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #1DC252;
+    background-color: none;
+    border: none;
+    border-radius: 25px;
+  }
+
+  .w3-button:hover {
+    background-color: none;
+
+  }
+
+  .w3-button:active {
+    background-color: none;
+    color: white;
+    transform: translateY(0px);
+  }
+
+  video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    filter: brightness(40%);
+  }
+
+  .navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    z-index: 1000;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  @keyframes slideUpFade {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .navbar {
+    animation: slideUpFade 1s ease-out forwards;
+    will-change: transform, opacity;
+  }
+
+  .active-dot,
+  .demo:hover {
+    background-color: #1DC252 !important;
+  }
+
+  img.w3-round {
+    border-radius: 50px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+    margin-bottom: 25px !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  }
+
+  img.w3-opacity-min {
+    opacity: 1 !important;
+  }
+
+  img.mySlides {
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease !important;
+  }
+
+  img.w3-round:hover,
+  img.mySlides:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5) !important;
+    cursor: pointer;
+  }
+
+  .modern-form input,
+  .modern-form textarea,
+  .modern-form select {
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 12px !important;
+    background-color: #fafafa !important;
+    padding: 16px 20px !important;
+    margin-bottom: 15px !important;
+    transition: all 0.3s ease !important;
+    font-size: 16px !important;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.02) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .modern-form input:focus,
+  .modern-form textarea:focus,
+  .modern-form select:focus {
+    outline: none !important;
+    border: 1px solid #1DC252 !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 4px rgba(29, 194, 82, 0.15) !important;
+  }
+
+  .modern-form select {
+    cursor: pointer !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23757575' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 15px center !important;
+    background-size: 16px !important;
+  }
+
+  .modern-form select:invalid {
+    color: #757575 !important;
+  }
+
+  .modern-btn {
+    background: linear-gradient(135deg, #1DC252, #174E28) !important;
+    color: white !important;
+    border-radius: 30px !important;
+    padding: 16px 32px !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    letter-spacing: 1px !important;
+    border: none !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    width: 100% !important;
+    margin-top: 10px !important;
+    box-shadow: 0 4px 15px rgba(29, 194, 82, 0.3) !important;
+  }
+
+  .modern-btn:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(29, 194, 82, 0.4) !important;
+    cursor: pointer !important;
+  }
+
+  .bubble-nav {
+    position: relative;
+    z-index: 1;
+    background-color: transparent !important;
+    color: #1DC252 !important;
+    font-weight: bold;
+    transition: color 0.3s ease !important;
+    border-radius: 30px !important;
+    padding: 10px 20px !important;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .bubble-nav:hover,
+  .title-nav:hover {
+    color: #174E28 !important;
+  }
+
+  .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    margin-right: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 18px;
+    text-decoration: none;
+  }
+
+  .social-icon:hover {
+    background-color: white;
+    color: #1DC252;
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .title-nav {
+    color: #1DC252 !important;
+    transition: color 0.3s ease !important;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    z-index: 1;
+  }
+
+  /* Dynamic Hero Text Styling */
+  .hero-text-container {
+    text-align: center;
+    color: white;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .hero-main-text {
+    font-size: clamp(40px, 8vw, 90px);
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -2px;
+  }
+
+  .hero-sub-text {
+    font-size: clamp(16px, 2vw, 24px);
+    font-weight: 400;
+    margin-top: 10px;
+    opacity: 0.9;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  /* Flatpickr Custom Theme Overrides to Match Website */
+  .flatpickr-calendar {
+    border-radius: 15px !important;
+    overflow: hidden !important;
+    border: none !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
+    padding-bottom: 5px !important;
+  }
+
+  .flatpickr-day.selected,
+  .flatpickr-day.startRange,
+  .flatpickr-day.endRange,
+  .flatpickr-day.selected.inRange,
+  .flatpickr-day.startRange.inRange,
+  .flatpickr-day.endRange.inRange,
+  .flatpickr-day.selected:focus,
+  .flatpickr-day.startRange:focus,
+  .flatpickr-day.endRange:focus,
+  .flatpickr-day.selected:hover,
+  .flatpickr-day.startRange:hover,
+  .flatpickr-day.endRange:hover,
+  .flatpickr-day.selected.prevMonthDay,
+  .flatpickr-day.startRange.prevMonthDay,
+  .flatpickr-day.endRange.prevMonthDay,
+  .flatpickr-day.selected.nextMonthDay,
+  .flatpickr-day.startRange.nextMonthDay,
+  .flatpickr-day.endRange.nextMonthDay {
+    background: #1DC252 !important;
+    border-color: #1DC252 !important;
+  }
+
+  .flatpickr-day.today {
+    border-color: #1DC252 !important;
+  }
+
+  .flatpickr-day.today:hover,
+  .flatpickr-day.today:focus {
+    border-color: #257723 !important;
+    background: #257723 !important;
+    color: #fff !important;
+  }
+
+  .flatpickr-months .flatpickr-month {
+    background: #1DC252 !important;
+  }
+
+  .flatpickr-current-month .flatpickr-monthDropdown-months {
+    background: transparent !important;
+    border-radius: 12px !important;
+    padding: 4px 8px !important;
+    border: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    cursor: pointer !important;
+    transition: background 0.2s ease !important;
+  }
+
+  .flatpickr-current-month .numInputWrapper {
+    background: transparent !important;
+    border-radius: 12px !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: background 0.2s ease !important;
+    width: 65px !important;
+  }
+
+  .flatpickr-current-month .numInputWrapper span {
+    border-radius: 0 12px 12px 0 !important;
+  }
+
+  .flatpickr-current-month .numInputWrapper input.cur-year {
+    background: transparent !important;
+    font-weight: normal !important;
+    border-radius: 12px !important;
+  }
+
+  .flatpickr-current-month .flatpickr-monthDropdown-months:hover,
+  .flatpickr-current-month .numInputWrapper:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  .flatpickr-current-month .flatpickr-monthDropdown-months option {
+    background: #1DC252 !important;
+    color: white !important;
+    font-weight: normal !important;
+  }
+
+  .flatpickr-calendar::before,
+  .flatpickr-calendar::after {
+    display: none !important;
+  }
+
+  .flatpickr-calendar .flatpickr-innerContainer {
+    border-bottom: none !important;
+  }
+
+  .flatpickr-weekdays {
+    background: #1DC252 !important;
+  }
+
+  span.flatpickr-weekday {
+    background: #1DC252 !important;
+    color: #fff !important;
+  }
+
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes panUp {
+    0% {
+      transform: translateY(42px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .about-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: min(calc(100vw - 200px), 1320px);
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .about-visuals {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 45% !important;
+    flex: 0 0 45% !important;
+    max-width: 45% !important;
+  }
+
+  .about-copy-wrap {
+    display: flex;
+    align-items: stretch;
+    min-height: 100%;
+    padding-right: 0 !important;
+    padding-left: 50px !important;
+    width: 55% !important;
+    flex: 0 0 55% !important;
+    max-width: 55% !important;
+  }
+
+  .about-copy-card {
+    width: 100%;
+    max-width: none;
+    margin: 48px 0 48px auto;
+    padding: 36px 34px;
+    border-radius: 32px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(242, 249, 244, 0.96));
+    box-shadow: 0 22px 50px rgba(23, 78, 40, 0.12);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(42px);
+    will-change: transform, opacity;
+  }
+
+  .about-copy-card.is-visible {
+    animation: panUp 0.9s ease-out 0.08s forwards;
+  }
+
+  .about-visual {
+    opacity: 0;
+    transform: translateY(42px);
+    will-change: transform, opacity;
+  }
+
+  .about-visuals.is-visible .about-visual {
+    animation: panUp 0.9s ease-out forwards;
+  }
+
+  .about-visuals.is-visible .about-visual:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .about-visuals.is-visible .about-visual:nth-child(2) {
+    animation-delay: 0.24s;
+  }
+
+  .about-kicker,
+  .about-title,
+  .about-copy-card p,
+  .about-highlights {
+    opacity: 0;
+    transform: translateY(42px);
+  }
+
+  .about-copy-card.is-visible .about-kicker,
+  .about-copy-card.is-visible .about-title,
+  .about-copy-card.is-visible p,
+  .about-copy-card.is-visible .about-highlights {
+    animation: panUp 0.85s ease-out forwards;
+  }
+
+  .about-kicker {
+    margin: 0 0 10px;
+    color: #174E28;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .about-title {
+    margin: 0 0 18px;
+    color: #1DC252;
+    font-size: clamp(2rem, 3vw, 2.7rem);
+    line-height: 1.15;
+  }
+
+  .about-copy-card p {
+    margin: 0 0 16px;
+    color: #4F5B52;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .about-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .about-highlight {
+    padding: 16px 14px;
+    border-radius: 20px;
+    background-color: rgba(29, 194, 82, 0.08);
+    text-align: center;
+  }
+
+  .about-highlight strong {
+    display: block;
+    color: #174E28;
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+  }
+
+  .about-highlight span {
+    color: #5B665E;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 992px) {
+    .about-section {
+      width: 100%;
+    }
+
+    .about-visuals,
+    .about-copy-wrap {
+      width: 100% !important;
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+
+    .about-copy-card {
+      padding: 28px 24px;
+      margin-top: 20px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .about-highlights {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .menu-copy-panel {
+    padding: 34px 30px;
+    border-radius: 34px;
+    background:
+      radial-gradient(circle at top right, rgba(29, 194, 82, 0.16), transparent 34%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 250, 246, 0.98));
+    box-shadow: 0 22px 50px rgba(23, 78, 40, 0.1);
+    border: 1px solid rgba(29, 194, 82, 0.12);
+  }
+
+  .menu-kicker {
+    display: inline-block;
+    margin: 0 0 14px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background-color: rgba(29, 194, 82, 0.1);
+    color: #174E28;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .menu-title {
+    margin: 0;
+    color: #1DC252;
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    line-height: 1.08;
+  }
+
+  .menu-lead {
+    margin: 16px 0 28px;
+    color: #5B665E;
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 580px;
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .menu-item {
+    padding: 18px 18px 16px;
+    border-radius: 24px;
+    background-color: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(23, 78, 40, 0.08);
+    box-shadow: 0 12px 24px rgba(23, 78, 40, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .menu-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 30px rgba(23, 78, 40, 0.12);
+    border-color: rgba(29, 194, 82, 0.24);
+  }
+
+  .menu-item-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+
+  .menu-item h4 {
+    margin: 0;
+    color: #174E28;
+    font-size: 1.08rem;
+    line-height: 1.35;
+  }
+
+  .menu-price {
+    flex-shrink: 0;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #1DC252, #174E28);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .menu-tag {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #1DC252;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .menu-item p {
+    margin: 0;
+    color: #5B665E;
+    line-height: 1.7;
+    font-size: 0.94rem;
+  }
+
+  @media (max-width: 768px) {
+    .menu-copy-panel {
+      padding: 28px 22px;
+    }
+
+    .menu-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<body>
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  </script>
+  <!-- Navbar (sit on top) -->
+  <div class="navbar">
+    <div id="nav-bubble"
+      style="position: absolute; background: rgba(255,255,255,0.95); border-radius: 40px; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); z-index: 0; opacity: 0; pointer-events: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    </div>
+    <div class="w3-bar w3-padding" style="letter-spacing:1px; position: relative; z-index: 1;">
+      <div class="container">
+        <div class="image">
+          <img src="logo.png" class="w3-image w3-opacity-min" alt="Logo" width="100" height="90">
+        </div>
+
+        <div class="text" style="z-index: 2;">
+          <a href="#home" class="title-nav" style="font-size:40px">
+            <b>Hot Springs Café</b>
+          </a>
+          <p style="color:#8C958F;">Taste of Culture</p>
+        </div>
+      </div>
+      <!-- Right-sided navbar links. Hide them on small screens -->
+      <div class="topright" id="nav-container"
+        style="display: flex; align-items: center; justify-content: flex-end; gap: 8px;">
+        <a href="#about" class="bubble-nav" style="font-size:18px">About</a>
+        <a href="#menu" class="bubble-nav" style="font-size:18px">Menu</a>
+        <a href="#locations" class="bubble-nav" style="font-size:18px">Locations</a>
+        <a href="#reserve" class="bubble-nav" style="font-size:18px">Reservations</a>
+        <a href="#contact" class="bubble-nav" style="font-size:18px">Contact</a>
+        <a href="cart.html" class="bubble-nav bx bx-shopping-bag" style="font-size:24px;"></a>
+        <a href="login.html" class="bubble-nav bx bx-user" style="font-size:24px;"></a>
+      </div>
+      <script>
+        const navbarCore = document.querySelector('.navbar');
+        const navBubble = document.getElementById('nav-bubble');
+        document.querySelectorAll('.bubble-nav, .title-nav').forEach(link => {
+          link.addEventListener('mouseenter', function () {
+            const linkRect = this.getBoundingClientRect();
+            const navRect = navbarCore.getBoundingClientRect();
+            navBubble.style.width = linkRect.width + 'px';
+            navBubble.style.left = (linkRect.left - navRect.left) + 'px';
+            navBubble.style.top = (linkRect.top - navRect.top) + 'px';
+            navBubble.style.height = linkRect.height + 'px';
+            navBubble.style.opacity = '1';
+          });
+        });
+        navbarCore.addEventListener('mouseleave', function () {
+          navBubble.style.opacity = '0';
+        });
+      </script>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+    <video playsinline loop muted autoplay id="bgvid"
+      style="width: 100%; height: 100vh; border-radius: 0 0 50px 50px; display: block; object-fit: cover;">
+      <source src="vedio.mp4" type="video/mp4">
+    </video>
+    <div class="w3-display-middle hero-text-container" id="heroText">
+      <h1 class="hero-main-text" style="white-space: nowrap;">sip. socialize. savor.</h1>
+      <p class="hero-sub-text">Hot Springs Café • Since 1957</p>
+    </div>
+    <br>
+  </header>
+
+  <!-- Page content -->
+  <div class="w3-content" style="max-width:1100px">
+
+    <!-- About Section -->
+    <div class="w3-row w3-padding-64 about-section" id="about">
+      <div class="w3-col m6 w3-padding-large w3-hide-small about-visuals" style="margin-top: -20px;">
+        <img src="2.png" class="w3-round w3-image w3-opacity-min about-visual" alt="Table Setting" width="600" height="750">
+        <img src="interior.png" class="w3-round w3-image w3-opacity-min about-visual" alt="Table Setting" width="600" height="950">
+      </div>
+
+      <div class="w3-col m6 w3-padding-large about-copy-wrap">
+        <div class="about-copy-card">
+          <p class="about-kicker">Tradition since 1957</p>
+          <h1 class="about-title"><b>Rich Taste in Coffees, Beverages and Bakery</b></h1>
+          <p>The cafe was founded in Trivandrum by Mr. Nallas Thomson in 1957 and grew steadily from Mysore to Bangalore
+            as demand for its warm hospitality increased.</p>
+          <p>Today, Hot Springs Cafe and Bakery is known for premium coffee, elegant desserts, and a French-cafe spirit
+            served across 13+ cities in India, 2 in France, and 25+ in the USA.</p>
+          <div class="about-highlights">
+            <div class="about-highlight">
+              <strong>75+ Years</strong>
+              <span>of heritage brewing</span>
+            </div>
+            <div class="about-highlight">
+              <strong>3 Countries</strong>
+              <span>sharing one signature taste</span>
+            </div>
+            <div class="about-highlight">
+              <strong>Pure Craft</strong>
+              <span>coffee, beverages, and bakery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Menu Section -->
+    <div class="w3-row w3-padding-64" id="menu" style="margin-top: -40px;">
+      <div class="w3-col l6 w3-padding-large">
+        <div class="menu-copy-panel">
+          <span class="menu-kicker">Curated Selection</span>
+          <h1 class="menu-title"><b>Rich Tastes on Our Menu</b></h1>
+          <p class="menu-lead">From signature brews to indulgent bakery favorites, each pick is crafted to feel warm, polished, and a little celebratory.</p>
+
+          <div class="menu-grid">
+            <div class="menu-item">
+              <span class="menu-tag">Signature Brew</span>
+              <div class="menu-item-top">
+                <h4>Cappuccino</h4>
+                <span class="menu-price">₹30</span>
+              </div>
+              <p>Velvety espresso finished with steamed milk and a soft layer of cocoa aroma.</p>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-tag">Chilled Favourite</span>
+              <div class="menu-item-top">
+                <h4>Cold Chocolate Drink</h4>
+                <span class="menu-price">₹50</span>
+              </div>
+              <p>A smooth, deeply chilled chocolate drink with a rich cafe-style finish.</p>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-tag">Berry Bake</span>
+              <div class="menu-item-top">
+                <h4>Blueberry Pings</h4>
+                <span class="menu-price">₹35</span>
+              </div>
+              <p>Soft baked bites filled with handpicked blueberries and a bright fruity note.</p>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-tag">Bakery Classic</span>
+              <div class="menu-item-top">
+                <h4>Donuts</h4>
+                <span class="menu-price">₹50</span>
+              </div>
+              <p>Light, fluffy donuts with crisp edges and a comforting sweet-shop finish.</p>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-tag">Celebration Cake</span>
+              <div class="menu-item-top">
+                <h4>Greyhound Christmas Cake</h4>
+                <span class="menu-price">₹500</span>
+              </div>
+              <p>A festive signature cake layered for birthdays, gatherings, and special moments.</p>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-tag">Crisp Bite</span>
+              <div class="menu-item-top">
+                <h4>Charle'De Humpy Tosties</h4>
+                <span class="menu-price">₹25</span>
+              </div>
+              <p>Golden toasted bites baked for a satisfying crunch and easy all-day snacking.</p>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-tag">Dessert Special</span>
+              <div class="menu-item-top">
+                <h4>Ice Cream Cakes</h4>
+                <span class="menu-price">₹600</span>
+              </div>
+              <p>Celebration cakes layered with chilled cream, soft sponge, and dessert richness.</p>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-tag">Savoury Pick</span>
+              <div class="menu-item-top">
+                <h4>Chicken Cutlet</h4>
+                <span class="menu-price">₹30</span>
+              </div>
+              <p>Seasoned chicken cutlets with a crisp coating and a warm, hearty center.</p>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-tag">Quick Snack</span>
+              <div class="menu-item-top">
+                <h4>Chicken Nuggets</h4>
+                <span class="menu-price">₹30</span>
+              </div>
+              <p>Crunchy nuggets made for easy sharing, evening cravings, and cafe snacking.</p>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-tag">Premium Treat</span>
+              <div class="menu-item-top">
+                <h4>Hazelnut Blend</h4>
+                <span class="menu-price">₹400</span>
+              </div>
+              <p>Nutty chocolate cream blend with a smooth finish and rich roasted depth.</p>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-tag">House Made</span>
+              <div class="menu-item-top">
+                <h4>Homemade Chocolates</h4>
+                <span class="menu-price">₹300</span>
+              </div>
+              <p>Small-batch chocolates crafted in-house for a refined, melt-in-the-mouth bite.</p>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-tag">Cafe Favourite</span>
+              <div class="menu-item-top">
+                <h4>Cafe Cookie Crunch</h4>
+                <span class="menu-price">₹110</span>
+              </div>
+              <p>Chocolate cookies with nuts and almonds, baked for a crisp, satisfying crunch.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-col l6 w3-padding-large">
+        <img src="3.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+        <img src="4.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+        <img src="6.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+      </div>
+    </div>
+
+    <hr>
+    <!-- Locations Section -->
+    <div class="w3-padding-64" id="locations" style="margin-top: -40px;">
+      <h1 style="color:#1DC252;" class="w3-center"><b>Our Locations</b></h1>
+      <div class="w3-row"
+        style="width: 100%; max-width: 100%; margin: 40px auto 0; padding: 0 2%; display: flex; flex-wrap: wrap; align-items: stretch;">
+
+        <!-- Left: Carousel -->
+        <div class="w3-col l9 m8 s12 w3-padding-large" style="display: flex; flex-direction: column;">
+          <div
+            style="position: relative; width: 100%; aspect-ratio: 16/9; flex-grow: 1; border-radius: 50px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); overflow: hidden; transform: translateZ(0);">
+            <div id="carousel-track"
+              style="display: flex; width: 500%; height: 100%; transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);">
+              <img class="mySlides" src="kochi.png" style="width: 20%; height: 100%; object-fit: cover;">
+              <img class="mySlides" src="chennai.png" style="width: 20%; height: 100%; object-fit: cover;">
+              <img class="mySlides" src="bengaluru.png" style="width: 20%; height: 100%; object-fit: cover;">
+              <img class="mySlides" src="delhi.png" style="width: 20%; height: 100%; object-fit: cover;">
+              <img class="mySlides" src="mumbai.png" style="width: 20%; height: 100%; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Location Details -->
+        <div class="w3-col l3 m4 s12 w3-padding-large w3-container"
+          style="display: flex; flex-direction: column; justify-content: center; max-height: 100%; overflow-y: auto;">
+          <div id="loc-text-container" style="transition: opacity 0.25s ease-in-out; opacity: 1;">
+            <h2 id="loc-name" style="color:#1DC252; font-size: 36px; margin-top: 0;"><b>Kochi Café</b></h2>
+            <p id="loc-address" class="w3-large w3-text-grey" style="margin-top: 20px;"><b>Address:</b> 12 Marine Drive,
+              Kochi, Kerala</p>
+            <p id="loc-timings" class="w3-large w3-text-grey"><b>Timings:</b> 8:00 AM - 10:00 PM</p>
+            <p id="loc-notes" class="w3-large w3-text-grey" style="margin-bottom: 0;"><b>Notes:</b> Enjoy our coastal
+              tropical aesthetic and famous
+              Kerala coffee blends.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Dots placed directly under the row -->
+      <div class="w3-center w3-padding-16" style="display:flex; justify-content:center; gap: 10px; margin-top: 20px;">
+        <span class="w3-badge demo" onclick="currentDiv(1)"
+          style="cursor:pointer; height: 10px; width: 10px; padding: 0; background-color: transparent; border: 1.5px solid #1DC252;"></span>
+        <span class="w3-badge demo" onclick="currentDiv(2)"
+          style="cursor:pointer; height: 10px; width: 10px; padding: 0; background-color: transparent; border: 1.5px solid #1DC252;"></span>
+        <span class="w3-badge demo" onclick="currentDiv(3)"
+          style="cursor:pointer; height: 10px; width: 10px; padding: 0; background-color: transparent; border: 1.5px solid #1DC252;"></span>
+        <span class="w3-badge demo" onclick="currentDiv(4)"
+          style="cursor:pointer; height: 10px; width: 10px; padding: 0; background-color: transparent; border: 1.5px solid #1DC252;"></span>
+        <span class="w3-badge demo" onclick="currentDiv(5)"
+          style="cursor:pointer; height: 10px; width: 10px; padding: 0; background-color: transparent; border: 1.5px solid #1DC252;"></span>
+      </div>
+    </div>
+
+    <hr>
+    <!-- Reservation Section  -->
+    <div class="w3-row w3-padding-64" id="reserve"
+      style="margin-top: -40px; display: flex; flex-wrap: wrap; align-items: center;">
+      <div class="w3-col l6 m12 w3-padding-large" style="padding-right: 8% !important;">
+        <h1 style="color:#1DC252;"><b>Reservations</b></h1>
+        <p>Making our Customers feel good is our primary aim. This makes us proud over 5 decades. Plesure for us to
+          introduce online Reservations for Dining and Takeouts.You can also contact us by Phone:0144 565658 or Email:
+          reservation@hotsprings.com</p>
+        <p>Make your Reservations for hassle free Dining and Takeouts.</p>
+        <form action="feedback2.html" target="_blank" class="modern-form" style="margin-top: 30px;">
+          <input class="w3-input" type="text" placeholder="Full Name" required name="Name">
+          <input class="w3-input" type="number" placeholder="How many people?" required name="People" min="1">
+          <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+            <div style="flex: 1; position: relative;">
+              <input class="w3-input datetime-picker" type="text" placeholder="Select Date" required name="date"
+                style="margin-bottom: 0 !important; width: 100% !important;">
+            </div>
+            <div style="flex: 1; position: relative;">
+              <select class="w3-input" required name="time"
+                style="margin-bottom: 0 !important; width: 100% !important;">
+                <option value="" disabled selected>Select Time</option>
+                <option value="08:00">8:00 AM</option>
+                <option value="08:30">8:30 AM</option>
+                <option value="09:00">9:00 AM</option>
+                <option value="09:30">9:30 AM</option>
+                <option value="10:00">10:00 AM</option>
+                <option value="10:30">10:30 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="11:30">11:30 AM</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="12:30">12:30 PM</option>
+                <option value="13:00">1:00 PM</option>
+                <option value="13:30">1:30 PM</option>
+                <option value="14:00">2:00 PM</option>
+                <option value="14:30">2:30 PM</option>
+                <option value="15:00">3:00 PM</option>
+                <option value="15:30">3:30 PM</option>
+                <option value="16:00">4:00 PM</option>
+                <option value="16:30">4:30 PM</option>
+                <option value="17:00">5:00 PM</option>
+                <option value="17:30">5:30 PM</option>
+                <option value="18:00">6:00 PM</option>
+                <option value="18:30">6:30 PM</option>
+                <option value="19:00">7:00 PM</option>
+                <option value="19:30">7:30 PM</option>
+                <option value="20:00">8:00 PM</option>
+                <option value="20:30">8:30 PM</option>
+                <option value="21:00">9:00 PM</option>
+                <option value="21:30">9:30 PM</option>
+                <option value="22:00">10:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <input class="w3-input" type="email" placeholder="Email Address" required name="Email"
+            title="Please enter a valid email address (e.g., user@example.com)">
+          <input class="w3-input" type="text" placeholder="Message / Special Requirements" required name="Message">
+          <button class="modern-btn" type="submit">BOOK RESERVATION</button>
+        </form>
+      </div>
+      <div class="w3-col l6 m12 w3-padding-large" style="padding-left: 44px !important; padding-right: 4px !important;">
+        <img src="5.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="w3-container w3-padding-64" id="contact" style="margin-top: -40px;">
+      <h1 style="color:#1DC252;"><b>Contact</b></h1><br>
+      <p>We offer full-day service for any event, large or small in your home or celebration occasions. We understand
+        your
+        needs and we will call back shortly.Do not hesitate to contact us.</p>
+      <p class="w3-text-blue-grey w3-large"><b>Hot Springs Café, 42nd Gremound St, Bengaluru 560004, Karnataka</b></p>
+      <p>You can also contact us by Phone 041-595985 or Email: contact@hotsprings.com, or you can send us a Message
+        here:
+      </p>
+      <form action="feedback2.html" target="_blank" class="modern-form" style="margin-top: 20px;">
+        <input class="w3-input" type="text" placeholder="Full Name" required name="Name">
+        <input class="w3-input" type="email" placeholder="Email Address" required name="Email">
+        <input class="w3-input" type="tel" placeholder="Contact Number" required name="Contact">
+        <input class="w3-input" type="text" placeholder="Feedback Message / Special Requirements" required
+          name="Message">
+        <button class="modern-btn" type="submit">SEND MESSAGE</button>
+      </form>
+    </div>
+    <div id="w3-container w3-padding-64" id="contact">
+      <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
+        <div class="w3-container w3-white w3-center">
+          <form action="feedback3.html" target="_blank" class="modern-form"
+            style="max-width: 500px; margin: 0 auto; padding-top: 20px;">
+            <h2 class="w3-wide" style="color: #1DC252; font-weight: bold;">NEWSLETTER</h2>
+            <p style="color: #555; margin-bottom: 30px;">Join our mailing list to receive updates on new arrivals and
+              special offers.</p>
+            <input class="w3-input" type="email" placeholder="Enter email address" required name="Email">
+            <button class="modern-btn" type="submit">SUBSCRIBE</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+    <!-- End page content -->
+  </div>
+
+  <!-- Footer -->
+  <footer id="footer"
+    style="background: linear-gradient(135deg, #1DC252, #174E28); color: white; border-radius: 50px 50px 0 0; padding: 60px 20px; width: 100%; margin-top: 40px; box-sizing: border-box;">
+    <div class="w3-row"
+      style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+
+      <!-- About Column -->
+      <div class="w3-col l4 m6 s12 w3-padding-large">
+        <h3 style="font-weight: bold; margin-bottom: 20px;">Hot Springs Café</h3>
+        <p style="opacity: 0.9; line-height: 1.8;">Experience the rich taste of culture and tradition since 1957. Join
+          us for premium coffee and luxurious bakery treats across all our international locations.</p>
+        <div style="margin-top: 25px;">
+          <a href="#" class="social-icon"><i class="fa fa-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="fa fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fa fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <!-- Links Column -->
+      <div class="w3-col l4 m6 s12 w3-padding-large">
+        <h3 style="font-weight: bold; margin-bottom: 20px;">Quick Links</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; opacity: 0.9;">
+          <a href="#about" style="text-decoration: none; display: block;">About Us</a>
+          <a href="#menu" style="text-decoration: none; display: block;">Menu</a>
+          <a href="#" style="text-decoration: none; display: block;">Support</a>
+          <a href="#locations" style="text-decoration: none; display: block;">Find Store</a>
+          <a href="#" style="text-decoration: none; display: block;">Gift Cards</a>
+          <a href="#contact" style="text-decoration: none; display: block;">Contact</a>
+        </div>
+      </div>
+
+      <!-- Contact & Features Column -->
+      <div class="w3-col l4 m12 s12 w3-padding-large">
+        <h3 style="font-weight: bold; margin-bottom: 20px;">Contact & Payments</h3>
+        <p style="opacity: 0.9; display: flex; align-items: center; gap: 10px;"><i class="material-icons">&#xe0b0;</i>
+          041-595985</p>
+        <p style="opacity: 0.9; display: flex; align-items: center; gap: 10px;"><i class="fa fa-envelope"></i>
+          contact@hotsprings.com</p>
+        <p style="opacity: 0.9; display: flex; align-items: center; gap: 10px; margin-bottom: 20px;"><i
+            class="material-icons">&#xe531;</i> Free Parking & WiFi</p>
+
+        <div style="margin-top: 15px; opacity: 0.9;">
+          <i class="fa fa-cc-visa" style="font-size: 32px; margin-right: 12px;"></i>
+          <i class="fa fa-cc-mastercard" style="font-size: 32px; margin-right: 12px;"></i>
+          <i class="fa fa-cc-amex" style="font-size: 32px; margin-right: 12px;"></i>
+          <i class="fa fa-cc-paypal" style="font-size: 32px;"></i>
+        </div>
+      </div>
+    </div>
+    <script>
+      const locData = [
+        { name: "Kochi Café", address: "12 Marine Drive, Kochi, Kerala", timings: "8:00 AM - 10:00 PM", notes: "Enjoy our coastal tropical aesthetic and famous Kerala coffee blends." },
+        { name: "Chennai Café", address: "45 Anna Salai, Chennai, Tamil Nadu", timings: "7:00 AM - 11:00 PM", notes: "Featuring evening acoustic music sessions every Friday." },
+        { name: "Bengaluru Café", address: "88 Indiranagar 100ft Road, Bengaluru", timings: "24 Hours open", notes: "Lush green ambient seating with high-speed Wi-Fi for remote workers." },
+        { name: "Delhi Café", address: "Connaught Place Inner Circle, Delhi", timings: "9:00 AM - 1:00 AM", notes: "Elegant, vibrant interiors perfect for business meets and luxury dining." },
+        { name: "Mumbai Café", address: "Juhu Beach Road, Mumbai, Maharashtra", timings: "6:00 AM - Midnight", notes: "Sea-facing terrace seating with spectacular modern architecture." }
+      ];
+
+      var slideIndex = 1;
+      var fadeTimeout;
+      showDivs(slideIndex);
+      initAboutReveal();
+
+      function currentDiv(n) {
+        showDivs(slideIndex = n);
+      }
+
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        if (!x || x.length == 0) return;
+        if (n > x.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = x.length }
+        var track = document.getElementById("carousel-track");
+        if (track) {
+          track.style.transform = "translateX(" + (-(slideIndex - 1) * 20) + "%)";
+        } else {
+          for (i = 0; i < x.length; i++) {
+            x[i].style.opacity = "0";
+            x[i].style.zIndex = "0";
+          }
+          x[slideIndex - 1].style.opacity = "1";
+          x[slideIndex - 1].style.zIndex = "1";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active-dot", "");
+        }
+        if (dots.length > 0) dots[slideIndex - 1].className += " active-dot";
+
+        var data = locData[slideIndex - 1];
+        var textContainer = document.getElementById("loc-text-container");
+        var nameEl = document.getElementById("loc-name");
+
+        if (textContainer && nameEl) {
+          textContainer.style.opacity = "0";
+          clearTimeout(fadeTimeout);
+          fadeTimeout = setTimeout(function () {
+            nameEl.innerHTML = "<b>" + data.name + "</b>";
+            document.getElementById("loc-address").innerHTML = "<b>Address:</b> " + data.address;
+            document.getElementById("loc-timings").innerHTML = "<b>Timings:</b> " + data.timings;
+            document.getElementById("loc-notes").innerHTML = "<b>Notes:</b> " + data.notes;
+            textContainer.style.opacity = "1";
+          }, 250);
+        } else if (nameEl) {
+          nameEl.innerHTML = "<b>" + data.name + "</b>";
+          document.getElementById("loc-address").innerHTML = "<b>Address:</b> " + data.address;
+          document.getElementById("loc-timings").innerHTML = "<b>Timings:</b> " + data.timings;
+          document.getElementById("loc-notes").innerHTML = "<b>Notes:</b> " + data.notes;
+        }
+      }
+
+      function initAboutReveal() {
+        var aboutSection = document.getElementById("about");
+        var aboutCard = document.querySelector(".about-copy-card");
+        var aboutVisuals = document.querySelector(".about-visuals");
+        if (!aboutSection) return;
+
+        function revealAbout() {
+          if (aboutCard) {
+            aboutCard.classList.add("is-visible");
+          }
+
+          if (aboutVisuals) {
+            aboutVisuals.classList.add("is-visible");
+          }
+        }
+
+        if (!("IntersectionObserver" in window)) {
+          revealAbout();
+          return;
+        }
+
+        var observer = new IntersectionObserver(function (entries, io) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              revealAbout();
+              io.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.35,
+          rootMargin: "0px 0px -8% 0px"
+        });
+
+        observer.observe(aboutSection);
+      }
+
+      // When the user scrolls down 50px from the top of the document, resize the header's font size
+      window.onscroll = function () { scrollFunction() };
+
+      function scrollFunction() {
+        // Dynamic Hero Text Parallax
+        const heroText = document.getElementById("heroText");
+        let scrollPos = window.pageYOffset;
+        if (heroText) {
+          heroText.style.transform = "translate(-50%, calc(-50% + " + (scrollPos * 0.45) + "px))";
+          heroText.style.opacity = Math.max(0, 1 - (scrollPos / 500));
+        }
+
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+          document.getElementById("w3-top") && (document.getElementById("w3-top").style.fontSize = "30px");
+        }
+        else {
+          document.getElementById("w3-top") && (document.getElementById("w3-top").style.fontSize = "90px");
+        }
+      }
+    </script>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    flatpickr(".datetime-picker", {
+      enableTime: false,
+      dateFormat: "Y-m-d",
+      minDate: "today",
+      altInput: true,
+      altFormat: "F j, Y",
+      disableMobile: true,
+      onReady: function (selectedDates, dateStr, instance) {
+        var nativeYearWrapper = instance.currentYearElement.parentNode;
+        nativeYearWrapper.style.display = 'none';
+
+        var yearDropdown = document.createElement('select');
+        yearDropdown.className = 'flatpickr-monthDropdown-months';
+        yearDropdown.style.marginLeft = '8px';
+        yearDropdown.style.width = 'auto';
+        yearDropdown.style.minWidth = '75px';
+
+        var currentYear = new Date().getFullYear();
+        for (var i = 0; i < 10; i++) {
+          var y = currentYear + i;
+          var opt = document.createElement('option');
+          opt.value = y;
+          opt.text = y;
+          yearDropdown.appendChild(opt);
+        }
+
+        yearDropdown.value = instance.currentYear;
+
+        yearDropdown.addEventListener('change', function (e) {
+          instance.changeYear(parseInt(e.target.value));
+        });
+
+        instance.config.onYearChange.push(function (d, s, inst) {
+          yearDropdown.value = inst.currentYear;
+        });
+
+        nativeYearWrapper.parentNode.appendChild(yearDropdown);
+      }
+    });
+  </script>
+</body>
+
+</html>
